@@ -2,10 +2,12 @@ import Link from "next/link";
 
 export default function Menu() {
   return (
-    <div style={{
-      border: '1px solid #ccc',
-      padding: 20
-    }}>
+    <div
+      style={{
+        border: "1px solid #ccc",
+        padding: 20,
+      }}
+    >
       <ul>
         <li>
           <Link href="/about">About</Link>
@@ -27,6 +29,9 @@ export default function Menu() {
         </li>
         <li>
           <Link href="/docs/features/1/example/1">Product Details</Link>
+        </li>
+        <li>
+          <Link href="/order">Order</Link>
         </li>
       </ul>
     </div>
