@@ -6,7 +6,8 @@ const sendJson = (data: any, status?: number) => {
   return new Response(JSON.stringify(data), {
     status: status || 200,
     headers: {
-      "content-type": "application/json"
+      "content-type": "application/json",
+      "set-cookie": "token=4545454"
     }
   })
 }
@@ -17,7 +18,11 @@ export async function GET(request: NextRequest) {
   const query = searchParams.get('query');
   //get headers
   const reqHeaders = headers();
-  console.log('**** reqHeader', reqHeaders.get('authorization'))
+  console.log('reqHeader :::', reqHeaders.get('authorization'))
+
+  //get req cookies
+  const reqCookie = request.cookies.get("token")
+  console.log('reqCookie :::', reqCookie)
   return sendJson(comments)
 }
 
