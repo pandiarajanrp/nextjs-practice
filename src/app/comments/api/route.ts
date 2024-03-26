@@ -1,5 +1,5 @@
 import { type NextRequest } from 'next/server.js';
-import { headers } from 'next/headers';
+import { headers, cookies } from 'next/headers';
 import { comments } from '../data/mock';
 
 const sendJson = (data: any, status?: number) => {
@@ -22,7 +22,9 @@ export async function GET(request: NextRequest) {
 
   //get req cookies
   const reqCookie = request.cookies.get("token")
+  const reqCk = cookies()
   console.log('reqCookie :::', reqCookie)
+  console.log('reqCk :::', reqCk.get('token'))
   return sendJson(comments)
 }
 
